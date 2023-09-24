@@ -3,9 +3,12 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const routes = require("./src/routes");
-
+const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 dotenv.config();
 const app = express();
+app.use(bodyParser.json())
+app.use(cookieParser())
 const port = 3001;
 //CORS
 app.use(function (req, res, next) {
